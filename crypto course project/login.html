@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Login</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        /* Fade-in/out animace */
+        body {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        body.fade-in {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Sekce Latest News -->
+        <div class="intro-section">
+            <h1>Latest News</h1>
+            <div class="news-grid">
+                <div class="news-item">
+                    <h2>Bitcoin Hits $100k!</h2>
+                    <p>The cryptocurrency world is abuzz as Bitcoin reaches a historic milestone...</p>
+                </div>
+                <div class="news-item">
+                    <h2>New Course: Advanced Trading</h2>
+                    <p>Learn advanced trading strategies and take your skills to the next level...</p>
+                </div>
+                <div class="news-item">
+                    <h2>Security Update</h2>
+                    <p>We've improved wallet security features to protect your assets even better...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sekce Formulář pro přihlášení -->
+        <div class="form-section">
+            <h2>Welcome Back</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="button" class="toggle-password">👁</button>
+                </div>
+                <div class="options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" class="forgot-password">Forgot a password?</a>
+                </div>
+                <button type="submit" class="btn-animated">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Funkce pro přesměrování po úspěšném přihlášení
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Zabráníme defaultnímu odeslání formuláře
+            navigateWithFade("start.html"); // Přesměrování s animací
+        });
+
+        // Fade-in při načtení stránky
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+        });
+
+        // Funkce pro fade-out a přesměrování
+        function navigateWithFade(url) {
+            document.body.classList.remove("fade-in");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 800); // Doba odpovídá CSS animaci
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+/* Resetování marginů a paddingů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Celkový styl stránky */
+body, html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #0a0a0a, #1d3a2c);
+    font-family: 'Arial', sans-serif;
+    color: #f2e88b;
+    text-align: center;
+}
+
+/* Kontejner pro celou stránku */
+.signup-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Sekce s videem a textem */
+.intro-section {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.video-section {
+    margin-bottom: 30px;
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Sekce s formulářem */
+.form-section {
+    flex: 1;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #1d3a2c;
+    border-radius: 15px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #f2e88b;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 1rem;
+    color: #f2e88b;
+    font-weight: bold;
+    text-align: left;
+}
+
+input {
+    padding: 12px;
+    border: 2px solid #f2e88b;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #2e4c3c;
+    color: #f2e88b;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-container input {
+    width: 100%;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #f2e88b;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Zobrazení síly hesla */
+.strength-indicator {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: red;
+}
+
+/* Chybová hlášení pro e-mail */
+.error-message {
+    font-size: 0.9rem;
+    color: red;
+    margin-top: 5px;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #f2e88b;
+    color: #1d3a2c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #1d3a2c;
+    color: #f2e88b;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Responzivita pro menší obrazovky */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .intro-section, .form-section {
+        flex: none;
+        width: 100%;
+    }
+
+    video {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    label, input, button {
+        font-size: 1rem;
+    }
+}

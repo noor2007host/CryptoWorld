@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - Crypto World</title>
+    <link rel="stylesheet" href="history.css">
+    <style>
+        /* Fade-in animace */
+        body {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        body.fade-in {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>History of Cryptocurrencies</h1>
+    </header>
+    <main>
+        <p>Discover the evolution of cryptocurrencies from Bitcoin to modern blockchain systems.</p>
+        <button onclick="location.href='start.html'">Back to Main</button>
+    </main>
+
+    <script>
+        // Fade-in při načtení stránky
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+        });
+    </script>
+</body>
+</html>

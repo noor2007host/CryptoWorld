@@ -1,0 +1,215 @@
+/* Resetování marginů a paddingů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Celkový styl stránky */
+body, html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #0a0a0a, #1d3a2c);
+    font-family: 'Arial', sans-serif;
+    color: #f2e88b;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Kontejner pro stránku */
+.signup-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Sekce Latest News */
+.intro-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.intro-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f2e88b;
+    text-transform: uppercase;
+}
+
+.news-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.news-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.news-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f2e88b;
+}
+
+/* Sekce Formulář pro přihlášení */
+.form-section {
+    flex: 1;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #1d3a2c;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2rem;
+    color: #f2e88b;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 2px solid #f2e88b;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #2e4c3c;
+    color: #f2e88b;
+    width: 100%;
+}
+
+.input-group .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #f2e88b;
+    cursor: pointer;
+}
+
+/* Odkaz pro zapomenuté heslo */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    align-items: center;
+}
+
+.forgot-password {
+    color: #f2e88b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #ff7f50;
+    text-decoration: underline;
+}
+
+/* Tlačítko pro přihlášení */
+.btn-animated {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f2e88b;
+    color: #1d3a2c;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.3s ease;
+}
+
+.btn-animated:hover::before {
+    left: 100%;
+}
+
+.btn-animated:hover {
+    background-color: #1d3a2c;
+    color: #f2e88b;
+}
+
+/* Responzivita pro menší obrazovky */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .intro-section, .form-section {
+        width: 100%;
+        flex: none;
+    }
+
+    .news-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .news-item {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    label, input, button {
+        font-size: 1rem;
+    }
+}

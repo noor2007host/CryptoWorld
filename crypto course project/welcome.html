@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Course Welcome</title>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Úvodní obsah -->
+        <div class="intro-container">
+            <img class="crypto-logo" src="logo.png" alt="Crypto Logo">
+            <div class="crypto-title">The Crypto World</div>
+            <div class="crypto-subtitle">Unlock the future of finance</div>
+            <div class="button-container">
+                <button class="primary-button" onclick="window.location.href='signup.html'">I Don’t Have an Account</button>
+                <button class="secondary-button" onclick="window.location.href='login.html'">Log In</button>
+            </div>
+        </div>
+
+        <!-- Chatbot ikonka -->
+        <div id="chatbot-icon" onclick="toggleChatbot()">
+            <img src="chatbot.png" alt="Chat Icon">
+        </div>
+
+        <!-- Chatbot okno -->
+        <div id="chatbot-window">
+            <div id="chatbot-header">
+                <span>Chat Assistant</span>
+            </div>
+            <div id="chatbot-messages">
+                <div class="message bot">Hello! How can I assist you?</div>
+            </div>
+            <div id="chatbot-input">
+                <input type="text" id="chat-input" placeholder="Type your message here..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chatbotVisible = false;
+
+        // Otevření a zavření chatbotu
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbot-window');
+            chatbotVisible = !chatbotVisible;
+            chatbotWindow.style.transform = chatbotVisible ? "scale(1)" : "scale(0)";
+            chatbotWindow.style.opacity = chatbotVisible ? "1" : "0";
+        }
+
+        // Posílání zpráv
+        function sendMessage() {
+            const inputField = document.getElementById('chat-input');
+            const messageText = inputField.value.trim();
+            if (messageText === '') return;
+
+            const messagesContainer = document.getElementById('chatbot-messages');
+
+            // Přidání zprávy uživatele
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.textContent = messageText;
+            messagesContainer.appendChild(userMessage);
+
+            // Vyčištění pole
+            inputField.value = '';
+
+            // Přidání odpovědi bota
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot';
+            botMessage.textContent = "I'm here to help! Let me know what you need.";
+            messagesContainer.appendChild(botMessage);
+
+            // Scrollování dolů
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Animace při načítání stránky
+        window.onload = () => {
+            document.body.classList.add('page-loaded');
+        };
+    </script>
+    <script>
+        // Fade-in při načtení stránky
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+        });
+    
+        // Funkce pro fade-out a přesměrování
+        function navigateWithFade(url) {
+            document.body.classList.remove("fade-in");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 800); // Doba odpovídá CSS animaci
+        }
+    </script>
+    
+</body>
+</html>

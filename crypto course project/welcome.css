@@ -1,0 +1,225 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Animace při načtení stránky */
+body {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Obecné styly */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1d3a2c, #2e2e2e);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Kontejner */
+.intro-container {
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.crypto-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.crypto-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f2e88b;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.crypto-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: #ffc038;
+    font-style: italic;
+}
+
+/* Tlačítka */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.primary-button {
+    background-color: #f2e88b;
+    color: #1d3a2c;
+}
+
+.primary-button:hover {
+    background-color: #ffc038;
+    transform: scale(1.05);
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid #f2e88b;
+    color: #f2e88b;
+}
+
+.secondary-button:hover {
+    background-color: #ffc038;
+    color: #1d3a2c;
+    transform: scale(1.05);
+}
+
+/* Chatbot Icon */
+#chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #f2e88b, #ffc038);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#chatbot-icon:hover {
+    transform: scale(1.1);
+}
+
+#chatbot-icon img {
+    width: 50%;
+    height: 50%;
+}
+
+/* Chatbot Window */
+#chatbot-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background: linear-gradient(135deg, #1d3a2c, #2e2e2e);
+    border: 2px solid #f2e88b;
+    border-radius: 20px; /* Zaoblení rohů */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Chatbot Header */
+#chatbot-header {
+    background-color: #0a0a0a;
+    color: #f2e88b;
+    padding: 15px;
+    border-bottom: 1px solid #f2e88b;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-top-left-radius: 20px; /* Zaoblení horního levého rohu */
+    border-top-right-radius: 20px; /* Zaoblení horního pravého rohu */
+}
+
+/* Chatbot Messages */
+#chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.message.bot {
+    background-color: #1d3a2c;
+    color: #f2e88b;
+    align-self: flex-start;
+}
+
+.message.user {
+    background-color: #f2e88b;
+    color: #1d3a2c;
+    align-self: flex-end;
+}
+
+/* Chatbot Input */
+#chatbot-input {
+    display: flex;
+    border-top: 2px solid #f2e88b;
+    padding: 10px;
+    background: #2e2e2e;
+    justify-content: space-between;
+    border-bottom-left-radius: 20px; /* Zaoblení spodního levého rohu */
+    border-bottom-right-radius: 20px; /* Zaoblení spodního pravého rohu */
+}
+
+#chatbot-input input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #f2e88b;
+    border-radius: 10px;
+    margin-right: 10px;
+    background: #1d3a2c;
+    color: #f2e88b;
+}
+
+#chatbot-input button {
+    padding: 10px 20px;
+    background-color: #f2e88b;
+    color: #1d3a2c;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#chatbot-input button:hover {
+    background-color: #ffc038;
+}
+/* Animace fade */
+body {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+body.fade-in {
+    opacity: 1;
+}

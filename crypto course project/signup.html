@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <style>
+        /* Reset a základní styl */
+        body {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        body.fade-in {
+            opacity: 1;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f2e88b;
+            color: #1d3a2c;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffc038;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Sekce popisu -->
+        <div class="intro-section">
+            <h1>Welcome to The Crypto World</h1>
+            <p>Learn the basics of cryptocurrencies and blockchain in an interactive way!</p>
+            <div class="video-section">
+                <video autoplay loop>
+                    <source src="join.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Sekce registrace -->
+        <div class="form-section">
+            <h2>Create Your Account</h2>
+            <form onsubmit="navigateWithFade(event, 'start.html')">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
+                </div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Přidání fade-in při načtení stránky
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+        });
+
+        // Funkce pro fade-out animaci a přesměrování
+        function navigateWithFade(event, url) {
+            event.preventDefault(); // Zabránění defaultnímu chování formuláře
+            document.body.classList.remove("fade-in"); // Fade-out animace
+            setTimeout(() => {
+                window.location.href = url; // Přesměrování na novou stránku
+            }, 800); // Doba odpovídá CSS animaci
+        }
+
+        // Funkce pro zobrazení/skrytí hesla
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleButton = document.querySelector('.toggle-password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleButton.textContent = '🙈'; // Změní ikonu na skrytí
+            } else {
+                passwordField.type = 'password';
+                toggleButton.textContent = '👁'; // Změní ikonu na zobrazení
+            }
+        }
+    </script>
+</body>
+</html>

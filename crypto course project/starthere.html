@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Here - Crypto World</title>
+    <link rel="stylesheet" href="starthere.css"> <!-- Odkaz na externí CSS soubor -->
+</head>
+<body>
+    <header>
+        <h1>Start Here - Crypto World</h1>
+    </header>
+    <main>
+        <p>Begin your journey into the world of cryptocurrencies. Learn the basics and explore our platform.</p>
+        <button onclick="navigateWithFade('start.html')">Back to Main</button>
+    </main>
+
+    <script>
+        // Animace fade-in při načítání stránky
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+        });
+
+        // Funkce pro fade-out a přesměrování
+        function navigateWithFade(url) {
+            document.body.classList.remove("fade-in");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 800); // Doba odpovídá CSS animaci
+        }
+    </script>
+</body>
+</html>
